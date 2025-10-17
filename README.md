@@ -11,7 +11,7 @@ spsh2 is a comprehensive e-commerce platform built with Django that supports bot
 ![home](./demo/home.jpg)
 ![category](./demo/category.jpg)
 ![filter](./demo/filters.jpg)
-![dashboard](./demo/admin.png)
+![admin](./demo/admin.png)
 ![dashboard](./demo/dashboard.jpg)
 ![dbs](./myapp_models.png)
 
