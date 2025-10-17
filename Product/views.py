@@ -5,11 +5,16 @@ from django.core.paginator import Paginator
 from Product.models import Product,Comment
 from category.models import Category,Languages
 from home.models import informationSite
-from django.http import HttpResponse
+def get_client_ip(request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            return x_forwarded_for.split(',')[0].strip()
+        return str(request.META.get('REMOTE_ADDR'))
 def detail(request,string):
     Prod = get_object_or_404(Product,slug=string)
-    ip_address = request.user.ip_address
-    if ip_address not in Prod.viewc.all():
+    ip_address = get_client_ip(request)
+    
+    if str(ip_address) not in str(Prod.viewc.all()):
         Prod.viewc.add(ip_address)
     languagess = Languages.objects.all()
     category = Category.objects.all()
